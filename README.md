@@ -11,3 +11,7 @@ Then, you can finally do polymorphic maths without worrying about what types you
 `one + one == two` currently returns False. This is due to a type conversion error. You can get around this by doing: `(one + one)[0] == two.__value__()`
 
 -- alternatively ensure that the value to the right of the `==` operator is an integer, as the __eq__ method currently requires this
+
+`Four = WordNumber(four)` creates a WordNumber with no WordNumber.number attribute defined. This is the correct behaviour, and user should not write code that does this.
+
+-- Instead, use `Four = WordNumber('four')` when creating uppercase variables

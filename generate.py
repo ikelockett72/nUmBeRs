@@ -8,4 +8,4 @@ for i in range(1000):
     try:
         exec(f"globals()[num] = WordNumber(num)", globals())
     except KeyError:
-        print(f"NotImplementedError: The number {num} is not yet implemented. Please keep updating for new numbers")
+        print(f"NotImplementedError: The number {num} is not yet implemented. Please keep updating the package for new numbers")
