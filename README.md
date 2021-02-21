@@ -9,3 +9,5 @@ Then, you can finally do polymorphic maths without worrying about what types you
 # KNOWN ISSUES
 
 `one + one == two` currently returns False. This is due to a type conversion error. You can get around this by doing: `(one + one)[0] == two.__value__()`
+
+-- alternatively ensure that the value to the right of the `==` operator is an integer, as the __eq__ method currently requires this
