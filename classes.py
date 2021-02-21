@@ -22,9 +22,13 @@ class WordNumber():
                     self.number = num_convert[number]
                 except (KeyError, ValueError):
                     try:
-                        self.number = num_convert[number.lower()] + 0.5
+                        self.number = str(float(num_convert[number.lower()[0] + number[1:]]) + 0.5)
                     except KeyError:
-                        raise NotImplementedError("No such number (please raise a JIRA ticket)")
+                        try:
+                            if number.upper() == number:
+                                self.number = "-1"
+                        except KeyError:
+                            raise NotImplementedError("No such number (please raise a JIRA ticket)")
 
     def __repr__(self):
         return self.number
@@ -33,7 +37,10 @@ class WordNumber():
         return self.__repr__() # TODO change to just return self.number for efficiency
 
     def __value__(self):
-        return int(self.__str__())
+        try:
+            return int(self.__str__())
+        except ValueError:
+            return int(float(self.__str__()))
 
     def __add__(self, other_num):
         _outcomes = """WordNumber: self.__value__() + int(other_num.__value__()),
