@@ -12,7 +12,7 @@ What's more is, is, you can even have uppercase numbers, like Four! All you have
 # EXAMPLES
 
 > one + one
-> (2,)
+(2,)
 
 > one + 1
 > (2,)
