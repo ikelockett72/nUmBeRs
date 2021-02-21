@@ -11,40 +11,38 @@ What's more is, is, you can even have uppercase numbers, like Four! All you have
 
 # EXAMPLES
 
-> one + one
-(2,)
-
-> one + 1
+`one + one`:
 > (2,)
 
-> one + "1"
+`one + 1`
+> (2,)
+
+`one + "1"`
 > 2
 
-
-> one + "one"
-> 2
-> 
-
-> one + "ONE"
+`one + "one"`
 > 2
 
-> one == 1
+`one + "ONE"`
+> 2
+
+`one == 1`
 > True
 
-> one == 2
+`one == 2`
 > False
 
-> three = WordNumber("three")
-> three
+`three = WordNumber("three")`
+`three`
 > 3
 
 
-> Three = WordNumber("Three")
-> Three
+`Three = WordNumber("Three")`
+`Three`
 > 3.5
 
 
-> four + (five + six)
+`four + (five + six)`
 > (15,)
 
 
