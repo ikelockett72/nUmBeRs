@@ -4,7 +4,7 @@ engine = inflect.engine()
 makeNumberWord = engine.number_to_words
 
 for i in range(1000):
-    num = makeNumberWord(i)
+    num = makeNumberWord(i).replace(" ", "").replace("-","")
     try:
         exec(f"globals()[num] = WordNumber(num)", globals())
     except KeyError:

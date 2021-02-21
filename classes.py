@@ -3,7 +3,7 @@
 """
 Created on Sat Feb 20 14:57:57 2021
 
-@author: ike.lockett
+@author: Ike Lockett
 """
 
 class WordNumber():
@@ -18,6 +18,7 @@ class WordNumber():
         "eight": '8',
         "nine": '9',
         "ten": '10'
+        "eleven": '11'
         }
     def __init__(self, number):
         if isinstance(number, int):
@@ -60,8 +61,14 @@ class WordNumber():
             except KeyError:
                 raise NotImplementedError(f"Cannot add this number to {self.__repr__()} yet")
 
-        for i in range(len(_outcomes.split("\n"))):
-            _cls = _outcomes.split("\n")[i].split(":")[0]
-            _func = _outcomes.split("\n")[i].split(":")[1]
+        return self._execute_function(_outcomes, other_num)
+
+    def __radd__(self, different_number):
+        return self.__add__(different_number)
+
+    def _execute_function(self, outcomes, other_num):
+        for i in range(len(outcomes.split("\n"))):
+            _cls = outcomes.split("\n")[i].split(":")[0]
+            _func = outcomes.split("\n")[i].split(":")[1]
             if eval(_cls) == type(other_num):
                 return eval(_func)
