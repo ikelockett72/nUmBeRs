@@ -7,5 +7,5 @@ for i in range(1000):
     num = makeNumberWord(i).replace(" ", "").replace("-","")
     try:
         exec(f"globals()[num] = WordNumber(num)", globals())
-    except KeyError:
+    except NotImplementedError:
         print(f"NotImplementedError: The number {num} is not yet implemented. Please keep updating the package for new numbers")

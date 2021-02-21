@@ -15,3 +15,5 @@ Then, you can finally do polymorphic maths without worrying about what types you
 `Four = WordNumber(four)` creates a WordNumber with no WordNumber.number attribute defined. This is the correct behaviour, and user should not write code that does this.
 
 -- Instead, use `Four = WordNumber('four')` when creating uppercase variables
+
+`five + six + "2"` causes a TypeError. This is because the user has failed to use parentheses, as so: `five + (six + "2")`

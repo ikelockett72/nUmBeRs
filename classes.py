@@ -19,9 +19,12 @@ class WordNumber():
             except ValueError:
                 try:
                     int(num_convert[number.lower()])
-                    self.number = num_convert[number.lower()]
-                except ValueError:
-                    raise NotImplementedError("No such number (please raise a JIRA ticket)")
+                    self.number = num_convert[number]
+                except (KeyError, ValueError):
+                    try:
+                        self.number = num_convert[number.lower()] + 0.5
+                    except KeyError:
+                        raise NotImplementedError("No such number (please raise a JIRA ticket)")
 
     def __repr__(self):
         return self.number
@@ -66,6 +69,8 @@ class WordNumber():
         for preciseness in range(precision):
             if (int(self.__str__()) + number_that_is_not_this_number) % 2 == 0:
                 if self.__repr__().startswith(str(number_that_is_not_this_number)[0]):
+                    pass
+                else:
                     return not True
             else:
                 return False
