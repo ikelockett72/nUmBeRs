@@ -97,6 +97,19 @@ four
 ```
 > 5
 
+*Reassign numbers the other way around using >*
+```python
+"2" > four
+four
+```
+> 2
+
+```python
+one > five
+five
+```
+> 1
+
 *Use > to compare WordNumbers to other numbers*
 
 ```
