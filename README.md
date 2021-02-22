@@ -15,7 +15,7 @@ What's more is, is, you can even have uppercase numbers, like Four! All you have
 
 ```
 one + one
-```:
+```
 > (2,)
 
 ```
