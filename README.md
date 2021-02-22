@@ -13,70 +13,99 @@ What's more is, is, you can even have uppercase numbers, like Four! All you have
 
 *Addition*
 
-`one + one`:
+```
+one + one
+```:
 > (2,)
 
-`one + 1`
+```
+one + 1
+```
 > (2,)
 
-`one + "1"`
+```
+one + "1"
+```
 > 2
 
-`one + "one"`
+```
+one + "one"
+```
 > 2
 
-`one + "ONE"`
+```
+one + "ONE"
+```
 > 2
 
 *Equality conditions now work*
 
-`one == 1`
+```
+one == 1
+```
 > True
 
-`one == 2`
+```
+one == 2
+```
 > False
 
-`three = WordNumber("three")`
-`three`
+```python
+three = WordNumber("three")
+three
+```
 > 3
 
 
 *Capital numbers - allows for a greater range of integers*
 
-`Three = WordNumber("Three")`
-`Three`
+```python
+Three = WordNumber("Three")
+`Three
+```
 > 3.5
 
 *All caps numbers allow negatives*
 
-`TWO = WordNumber("TWO")`
-`TWO`
+```python
+TWO = WordNumber("TWO")
+TWO
+```
 > -2
 
 *All caps maths works too*
 
-`THREE = WordNumber("THREE")`
-`FOUR = WordNumber("FOUR")`
-`(THREE + FOUR)[0] + 3`
+```python
+THREE = WordNumber("THREE")
+FOUR = WordNumber("FOUR")
+(THREE + FOUR)[0] + 3
+```
 > -4
 
 *Addition of more than 2 numbers possible with parentheses*
 
-`four + (five + six)`
+```
+four + (five + six)
+```
 > (15,)
 
 *Reassign numbers using <*
 
-`four < "5"`
-`four`
+```python
+four < "5"
+four```
 > 5
 
 *Use > to compare WordNumbers to other numbers*
 
-`four > 5`
+```
+four > 5
+```
 > False
 
-`four > 3`
+```
+four > 3
+```
 > "Yes"
 
 
