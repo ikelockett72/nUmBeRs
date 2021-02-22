@@ -11,7 +11,8 @@ What's more is, is, you can even have uppercase numbers, like Four! All you have
 
 # EXAMPLES
 
-Addition
+*Addition*
+
 `one + one`:
 > (2,)
 
@@ -27,7 +28,8 @@ Addition
 `one + "ONE"`
 > 2
 
-Equality conditions now work
+*Equality conditions now work*
+
 `one == 1`
 > True
 
@@ -39,32 +41,38 @@ Equality conditions now work
 > 3
 
 
-Capital numbers - allows for a greater range of integers
+*Capital numbers - allows for a greater range of integers*
+
 `Three = WordNumber("Three")`
 `Three`
 > 3.5
 
-All caps numbers allow negatives
+*All caps numbers allow negatives*
+
 `TWO = WordNumber("TWO")`
 `TWO`
 > -2
 
-All caps maths works too
+*All caps maths works too*
+
 `THREE = WordNumber("THREE")`
 `FOUR = WordNumber("FOUR")`
 `(THREE + FOUR)[0] + 3`
 > -4
 
-Addition of more than 2 numbers possible with parentheses
+*Addition of more than 2 numbers possible with parentheses*
+
 `four + (five + six)`
 > (15,)
 
-Reassign numbers using <
+*Reassign numbers using <*
+
 `four < "5"`
 `four`
 > 5
 
-Use > to compare WordNumbers to other numbers
+*Use > to compare WordNumbers to other numbers*
+
 `four > 5`
 > False
 
