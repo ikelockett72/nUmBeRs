@@ -93,7 +93,8 @@ four + (five + six)
 
 ```python
 four < "5"
-four```
+four
+```
 > 5
 
 *Use > to compare WordNumbers to other numbers*
@@ -111,14 +112,26 @@ four > 3
 
 # KNOWN ISSUES
 
-`one + one == two` currently returns False. This is due to a type conversion error. You can get around this by doing: `(one + one)[0] == two.__value__()`
+```
+one + one == two
+```
+...currently returns False. This is due to a type conversion error. You can get around this by doing: `(one + one)[0] == two.__value__()`
 
 -- alternatively ensure that the value to the right of the `==` operator is an integer, as the __eq__ method currently requires this
 
-`Four = WordNumber(four)` creates a WordNumber with no WordNumber.number attribute defined. This is the correct behaviour, and user should not write code that does this.
+```
+Four = WordNumber(four)
+```
+...creates a WordNumber with no WordNumber.number attribute defined. This is the correct behaviour, and user should not write code that does this.
 
 -- Instead, use `Four = WordNumber('Four')` when creating uppercase variables
 
-`five + six + "2"` causes a TypeError. This is because the user has failed to use parentheses, as so: `five + (six + "2")`
+```
+five + six + "2"
+```
+...causes a TypeError. This is because the user has failed to use parentheses, as so: `five + (six + "2")`
 
-`ninety + 91 + ninetyone` returns nothing. Don't add a WordNumber to a tuple, it won't work.
+```
+ninety + 91 + ninetyone
+```
+...returns nothing. Don't add a WordNumber to a tuple, it won't work.
