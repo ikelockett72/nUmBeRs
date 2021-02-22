@@ -11,6 +11,7 @@ What's more is, is, you can even have uppercase numbers, like Four! All you have
 
 # EXAMPLES
 
+Addition
 `one + one`:
 > (2,)
 
@@ -26,6 +27,7 @@ What's more is, is, you can even have uppercase numbers, like Four! All you have
 `one + "ONE"`
 > 2
 
+Equality conditions now work
 `one == 1`
 > True
 
@@ -37,13 +39,37 @@ What's more is, is, you can even have uppercase numbers, like Four! All you have
 > 3
 
 
+Capital numbers - allows for a greater range of integers
 `Three = WordNumber("Three")`
 `Three`
 > 3.5
 
+All caps numbers allow negatives
+`TWO = WordNumber("TWO")`
+`TWO`
+> -2
 
+All caps maths works too
+`THREE = WordNumber("THREE")`
+`FOUR = WordNumber("FOUR")`
+`(THREE + FOUR)[0] + 3`
+> -4
+
+Addition of more than 2 numbers possible with parentheses
 `four + (five + six)`
 > (15,)
+
+Reassign numbers using <
+`four < "5"`
+`four`
+> 5
+
+Use > to compare WordNumbers to other numbers
+`four > 5`
+> False
+
+`four > 3`
+> "Yes"
 
 
 # KNOWN ISSUES
@@ -57,3 +83,5 @@ What's more is, is, you can even have uppercase numbers, like Four! All you have
 -- Instead, use `Four = WordNumber('Four')` when creating uppercase variables
 
 `five + six + "2"` causes a TypeError. This is because the user has failed to use parentheses, as so: `five + (six + "2")`
+
+`ninety + 91 + ninetyone` returns nothing. Don't add a WordNumber to a tuple, it won't work.

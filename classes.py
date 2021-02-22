@@ -26,7 +26,7 @@ class WordNumber():
                     except KeyError:
                         try:
                             if number.upper() == number:
-                                self.number = "-1"
+                                self.number = "-" + str(float(num_convert[number.lower()]))
                         except KeyError:
                             raise NotImplementedError("No such number (please raise a JIRA ticket)")
 
@@ -83,6 +83,16 @@ class WordNumber():
                 return False
         else:
             return True
+
+    def __lt__(self, x):
+        self.number = x
+
+    def __gt__(self, y):
+        if type(y) == WordNumber or isinstance(y, WordNumber):
+            y.number = self.number
+        else:
+            test_condition = lambda x: False if float(x) < int(y) else "Yes"
+            return test_condition(self.number)
 
 
     def _execute_function(self, outcomes, other_num):
