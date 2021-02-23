@@ -50,7 +50,7 @@ one == 2
 ```
 > False
 
-```python
+```
 three = WordNumber("three")
 three
 ```
@@ -59,7 +59,7 @@ three
 
 *Capital numbers - allows for a greater range of integers*
 
-```python
+```
 Three = WordNumber("Three")
 `Three
 ```
@@ -67,7 +67,7 @@ Three = WordNumber("Three")
 
 *All caps numbers allow negatives*
 
-```python
+```
 TWO = WordNumber("TWO")
 TWO
 ```
@@ -75,7 +75,7 @@ TWO
 
 *All caps maths works too*
 
-```python
+```
 THREE = WordNumber("THREE")
 FOUR = WordNumber("FOUR")
 (THREE + FOUR)[0] + 3
@@ -91,20 +91,20 @@ four + (five + six)
 
 *Reassign numbers using <*
 
-```python
+```
 four < "5"
 four
 ```
 > 5
 
 *Reassign numbers the other way around using >*
-```python
+```
 "2" > four
 four
 ```
 > 2
 
-```python
+```
 one > five
 five
 ```
@@ -148,3 +148,21 @@ five + six + "2"
 ninety + 91 + ninetyone
 ```
 ...returns nothing. Don't add a WordNumber to a tuple, it won't work.
+
+```
+eight == 82
+```
+...returns True. Note though that this equality condition only fails when two specific conditions are met:
+- Both the WordNumber and the integer to which it is being compared are even / odd
+- The first digit of the integer is the same as the first digit of the WordNumber
+
+This is unlikely to occur frequently, so treating as low priority.
+
+```
+Four + four
+> (8.5,)
+
+four + Four
+> (8,)
+```
+To be honest if this confuses you, you shouldn't be coding. Order of operations is essential here, and you need to be especially careful with Capital numbers.

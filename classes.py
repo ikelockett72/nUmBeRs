@@ -40,7 +40,7 @@ class WordNumber():
         try:
             return int(self.__str__())
         except ValueError:
-            return int(float(self.__str__()))
+            return float(self.__str__())
 
     def __add__(self, other_num):
         _outcomes = """WordNumber: self.__value__() + int(other_num.__value__()),
