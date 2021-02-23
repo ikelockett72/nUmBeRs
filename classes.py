@@ -29,6 +29,15 @@ class WordNumber():
                                 self.number = "-" + str(float(num_convert[number.lower()]))
                         except KeyError:
                             raise NotImplementedError("No such number (please raise a JIRA ticket)")
+        if str(number) in num_convert.keys():
+            self.name = str(number)
+        else:
+            for k, v in num_convert.items():
+                if str(number).lower() == v:
+                    self.name = k
+                    break
+            else:
+                self.name = "Not known"
 
     def __repr__(self):
         return self.number
@@ -94,6 +103,8 @@ class WordNumber():
             test_condition = lambda x: False if float(x) < int(y) else "Yes"
             return test_condition(self.number)
 
+    def __matmul__(self, y):
+        return WordNumber(self.number + y.number)
 
     def _execute_function(self, outcomes, other_num):
         for i in range(len(outcomes.split("\n"))):

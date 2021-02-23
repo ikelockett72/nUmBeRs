@@ -122,6 +122,13 @@ four > 3
 ```
 > "Yes"
 
+*Use @ to create shortcut numbers*
+```
+three@four@six@five + five@ten@eleven@four
+```
+> WordNumber(3465) + WordNumber(510114)
+> (513579,)
+
 
 # KNOWN ISSUES
 
