@@ -36,7 +36,7 @@ one + "one"
 ```
 one + "ONE"
 ```
-> 2
+> 0
 
 *Equality conditions now work*
 
