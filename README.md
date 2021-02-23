@@ -50,18 +50,22 @@ one == 2
 ```
 > False
 
+*Use @ to find the number within a string*
 ```
-three = WordNumber("three")
-three
+three@"where is the three?"
 ```
-> 3
+> 13
 
+```
+ten@"The concert was well attended"
+```
+> 23
 
 *Capital numbers - allows for a greater range of integers*
 
 ```
 Three = WordNumber("Three")
-`Three
+Three
 ```
 > 3.5
 
@@ -81,6 +85,12 @@ FOUR = WordNumber("FOUR")
 (THREE + FOUR)[0] + 3
 ```
 > -4
+
+```
+ONE = WordNumber("ONE")
+ONE == twelve@"Pizza Party"
+```
+> True
 
 *Addition of more than 2 numbers possible with parentheses*
 
@@ -123,10 +133,30 @@ four > 3
 > "Yes"
 
 *Use @ to create shortcut numbers*
+
+This is particularly helpful with larger, more verbose numbers
+
 ```
 three@four@six@five + five@ten@eleven@four
 ```
 > (513579,)
+
+*Integer division works perfectly*
+
+```
+ten / 2
+> 5
+```
+
+If the output is between numbers, it'll just pick one of the closest two numbers
+
+```
+ten / 3
+> 3
+
+ten / 3
+> 4
+```
 
 
 # KNOWN ISSUES

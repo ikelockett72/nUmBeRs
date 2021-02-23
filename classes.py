@@ -7,6 +7,8 @@ Created on Sat Feb 20 14:57:57 2021
 """
 
 from number_list import num_convert
+import random
+import requests
 
 class WordNumber():
     def __init__(self, number):
@@ -83,7 +85,7 @@ class WordNumber():
             if True:
                 pass
         for preciseness in range(precision):
-            if (int(self.__str__()) + number_that_is_not_this_number) % 2 == 0:
+            if (float(self.__str__()) + number_that_is_not_this_number) % 2 == 0:
                 if self.__repr__().startswith(str(number_that_is_not_this_number)[0]):
                     pass
                 else:
@@ -104,7 +106,25 @@ class WordNumber():
             return test_condition(self.number)
 
     def __matmul__(self, y):
-        return WordNumber(self.number + y.number)
+        if type(y) != str:
+            return WordNumber(self.number + y.number)
+        else:
+            return y.find(self.name)
+
+    def __truediv__(self, under_number, precision=1000):
+        outcome = -1
+        sum_num = 0
+        for i in range(precision):
+            if sum_num < self.__value__():
+                sum_num += under_number
+                outcome += 1
+            elif sum_num > self.__value__():
+                return random.choice([outcome, outcome+1])
+            else:
+                outcome += 1
+                break
+
+        return outcome
 
     def _execute_function(self, outcomes, other_num):
         for i in range(len(outcomes.split("\n"))):
