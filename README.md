@@ -126,7 +126,6 @@ four > 3
 ```
 three@four@six@five + five@ten@eleven@four
 ```
-> WordNumber(3465) + WordNumber(510114)
 > (513579,)
 
 
