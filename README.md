@@ -128,31 +128,42 @@ four > 3
 ```
 one + one == two
 ```
-...currently returns False. This is due to a type conversion error. You can get around this by doing: `(one + one)[0] == two.__value__()`
+> False
 
--- alternatively ensure that the value to the right of the `==` operator is an integer, as the __eq__ method currently requires this
+This is due to a type conversion error. You can get around this by doing: `(one + one)[0] == two.__value__()`
+
+Alternatively ensure that the value to the right of the `==` operator is an integer, as the __eq__ method currently requires this
 
 ```
 Four = WordNumber(four)
+Four.number
 ```
-...creates a WordNumber with no WordNumber.number attribute defined. This is the correct behaviour, and user should not write code that does this.
+> AttributeError: 'WordNumber' object has no attribute 'number'
 
--- Instead, use `Four = WordNumber('Four')` when creating uppercase variables
+This is the correct behaviour, and user should not write code that does this.
+
+Instead, use `Four = WordNumber('Four')` when creating Capital numbers
 
 ```
 five + six + "2"
 ```
-...causes a TypeError. This is because the user has failed to use parentheses, as so: `five + (six + "2")`
+> TypeError: can only concatenate tuple (not "str") to tuple
+
+This is because the user has failed to use parentheses, as so: `five + (six + "2")`
 
 ```
 ninety + 91 + ninetyone
 ```
-...returns nothing. Don't add a WordNumber to a tuple, it won't work.
+>
+
+Don't add a WordNumber to a tuple, it won't work.
 
 ```
 eight == 82
 ```
-...returns True. Note though that this equality condition only fails when two specific conditions are met:
+> True
+
+Note though that this equality condition only fails when two specific conditions are met:
 - Both the WordNumber and the integer to which it is being compared are even / odd
 - The first digit of the integer is the same as the first digit of the WordNumber
 
