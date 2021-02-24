@@ -14,5 +14,7 @@ for i in range(1000):
         f.write(num_convert_str)
     try:
         exec(f"globals()[num] = WordNumber(num)", globals())
+        exec(f"globals()[num.upper()] = WordNumber(num.upper())", globals())
+        exec(f"globals()[num.capitalize()] = WordNumber(num.capitalize())", globals())
     except NotImplementedError:
         print(f"NotImplementedError: The number {num} is not yet implemented. Please keep updating the package for new numbers")

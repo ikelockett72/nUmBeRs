@@ -4,7 +4,7 @@ To run this, you must first run `pip install inflect`
 
 Then whenever you want, you can just run `from generate import *` and it will create every number that is currently supported as its own variable.
 
-Then, you can finally do polymorphic maths without worrying about what types you're using! For instance, you can run `one + one` and output `(2,)`
+Then, you can finally do polymorphic maths without worrying about what types you're using! For instance, you can run `one + 1` and output `(2,)`
 
 What's more is, is, you can even have uppercase numbers, like Four! All you have to do, is define it as such: `Four = WordNumber("Four")`.
 
@@ -12,11 +12,6 @@ What's more is, is, you can even have uppercase numbers, like Four! All you have
 # EXAMPLES
 
 *Addition*
-
-```
-one + one
-```
-> (2,)
 
 ```
 one + 1
@@ -37,6 +32,12 @@ one + "one"
 one + "ONE"
 ```
 > 2
+
+```
+one + one
+```
+> (2,)
+
 
 *Equality conditions now work*
 
@@ -64,7 +65,6 @@ ten@"The concert was well attended"
 *Capital numbers - allows for a greater range of integers*
 
 ```
-Three = WordNumber("Three")
 Three
 ```
 > 3.5
@@ -72,7 +72,6 @@ Three
 *All caps numbers allow negatives*
 
 ```
-TWO = WordNumber("TWO")
 TWO
 ```
 > -2
@@ -80,14 +79,11 @@ TWO
 *All caps maths works too*
 
 ```
-THREE = WordNumber("THREE")
-FOUR = WordNumber("FOUR")
-(THREE + FOUR)[0] + 3
+THREE + FOUR
 ```
-> -4
+> (-7.0,0)
 
 ```
-ONE = WordNumber("ONE")
 ONE == twelve@"Pizza Party"
 ```
 > True
@@ -95,7 +91,7 @@ ONE == twelve@"Pizza Party"
 *Addition of more than 2 numbers possible with parentheses*
 
 ```
-four + (five + six)
+4 + (five + 6)[0]
 ```
 > (15,)
 
@@ -132,6 +128,8 @@ four > 3
 ```
 > "Yes"
 
+^ If the above doesn't work, exit and reimport. This may have been due to previously reassigning the number
+
 *Use @ to create shortcut numbers*
 
 This is particularly helpful with larger, more verbose numbers
@@ -166,7 +164,7 @@ one + one == two
 ```
 > False
 
-This is due to a type conversion error. You can get around this by doing: `(one + one)[0] == two.__value__()`
+This is due to a type conversion error. You can get around this by doing: `(one + one)[0] == two.__value__()` or `bool(one + one) == bool(two)`
 
 Alternatively ensure that the value to the right of the `==` operator is an integer, as the __eq__ method currently requires this
 
@@ -206,10 +204,16 @@ Note though that this equality condition only fails when two specific conditions
 This is unlikely to occur frequently, so treating as low priority.
 
 ```
+Four + FOUR
+> (0.5,)
+
+FOUR + Four
+> (0.0,)
+
 Four + four
-> (8.5,)
+> (8.5)
 
 four + Four
 > (8,)
 ```
-To be honest if this confuses you, you shouldn't be coding. Order of operations is essential here, and you need to be especially careful with Capital numbers.
+To be honest if any of this confuses you, you shouldn't be coding. Order of operations is essential here, and you need to be especially careful with Capital numbers.

@@ -80,6 +80,8 @@ class WordNumber():
     def __eq__(self, number_that_is_not_this_number, precision=1000):
         test_state = True
         if str(type(number_that_is_not_this_number)).find("int") != 8:
+            if isinstance(number_that_is_not_this_number, tuple):
+                return False
             return "WordNumber can only be equal to integers"
         else:
             if True:
