@@ -8,6 +8,7 @@ Then, you can finally do polymorphic maths without worrying about what types you
 
 What's more is, is, you can even have uppercase numbers, like Four! All you have to do, is define it as such: `Four = WordNumber("Four")`.
 
+***
 
 # EXAMPLES
 
@@ -33,11 +34,15 @@ one + "ONE"
 ```
 > 2
 
+<<<<<<< HEAD
 ```
 one + one
 ```
 > (2,)
 
+=======
+---
+>>>>>>> 8416db06d4be55da7539bc88cb6aaf281db2a5e3
 
 *Equality conditions now work*
 
@@ -50,6 +55,8 @@ one == 1
 one == 2
 ```
 > False
+>
+---
 
 *Use @ to find the number within a string*
 ```
@@ -62,6 +69,8 @@ ten@"The concert was well attended"
 ```
 > 23
 
+---
+
 *Capital numbers - allows for a greater range of integers*
 
 ```
@@ -69,12 +78,16 @@ Three
 ```
 > 3.5
 
+---
+
 *All caps numbers allow negatives*
 
 ```
 TWO
 ```
 > -2
+
+---
 
 *All caps maths works too*
 
@@ -88,12 +101,16 @@ ONE == twelve@"Pizza Party"
 ```
 > True
 
+---
+
 *Addition of more than 2 numbers possible with parentheses*
 
 ```
 4 + (five + 6)[0]
 ```
 > (15,)
+
+---
 
 *Reassign numbers using <*
 
@@ -102,6 +119,8 @@ four < "5"
 four
 ```
 > 5
+
+---
 
 *Reassign numbers the other way around using >*
 ```
@@ -115,6 +134,8 @@ one > five
 five
 ```
 > 1
+
+---
 
 *Use > to compare WordNumbers to other numbers*
 
@@ -139,6 +160,8 @@ three@four@six@five + five@ten@eleven@four
 ```
 > (513579,)
 
+---
+
 *Integer division works perfectly*
 
 ```
@@ -156,6 +179,7 @@ ten / 3
 > 4
 ```
 
+***
 
 # KNOWN ISSUES
 
@@ -168,6 +192,8 @@ This is due to a type conversion error. You can get around this by doing: `(one 
 
 Alternatively ensure that the value to the right of the `==` operator is an integer, as the __eq__ method currently requires this
 
+---
+
 ```
 Four = WordNumber(four)
 Four.number
@@ -178,6 +204,8 @@ This is the correct behaviour, and user should not write code that does this.
 
 Instead, use `Four = WordNumber('Four')` when creating Capital numbers
 
+---
+
 ```
 five + six + "2"
 ```
@@ -185,12 +213,16 @@ five + six + "2"
 
 This is because the user has failed to use parentheses, as so: `five + (six + "2")`
 
+---
+
 ```
 ninety + 91 + ninetyone
 ```
 >
 
 Don't add a WordNumber to a tuple, it won't work.
+
+--
 
 ```
 eight == 82
@@ -201,7 +233,9 @@ Note though that this equality condition only fails when two specific conditions
 - Both the WordNumber and the integer to which it is being compared are even / odd
 - The first digit of the integer is the same as the first digit of the WordNumber
 
-This is unlikely to occur frequently, so treating as low priority.
+This only tends to happen infrequently, so ignoring
+
+---
 
 ```
 Four + FOUR
