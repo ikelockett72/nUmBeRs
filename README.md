@@ -149,6 +149,8 @@ four > 3
 
 ^ If the above doesn't work, exit and reimport. This may have been due to previously reassigning the number
 
+---
+
 *Use @ to create shortcut numbers*
 
 This is particularly helpful with larger, more verbose numbers
