@@ -31,6 +31,9 @@ class WordNumber():
                                 self.number = "-" + str(float(num_convert[number.lower()]))
                         except KeyError:
                             raise NotImplementedError("No such number (please raise a JIRA ticket)")
+        elif isinstance(number, complex):
+            self.number = str(number.real)
+            self.inumber = str(number.imag)
         if str(number) in num_convert.keys():
             self.name = str(number)
         else:
@@ -56,7 +59,8 @@ class WordNumber():
     def __add__(self, other_num):
         _outcomes = """WordNumber: self.__value__() + int(other_num.__value__()),
             int: self.__value__() + other_num,
-            str: self.__value__() + int(other_num)"""
+            str: self.__value__() + int(other_num),
+            complex: self.__value__() + (other_num.real / other_num.    imag)"""
 
         try:
             other_num = other_num.lower()
@@ -134,5 +138,7 @@ class WordNumber():
             _func = outcomes.split("\n")[i].split(":")[1]
             if eval(_cls) == type(other_num):
                 return eval(_func)
+
+
 
 from classes import WordNumber

@@ -247,4 +247,99 @@ Four + four
 four + Four
 > (8,)
 ```
+
 To be honest if any of this confuses you, you shouldn't be coding. Order of operations is essential here, and you need to be especially careful with Capital numbers.
+
+```
+FOUR@four
+> NotImplementedError: No such number (please raise a JIRA ticket)
+```
+
+Not all numbers have been implemented yet. It looks like you're attempting a new number, and that's ok, but it might have to wait a few versions before that is one of the numbers that you can use.
+
+Note that you can always use FOURTYFOUR in the meantime
+
+***
+
+# ADVANCED USAGE
+
+*Range Iterator*
+
+This is a way to output the name of every known number from -10 to 9. Take note in particular that the variable start_range is assigned the value `'-10.0'` due to the use of the walrus operator.
+
+```
+for i in range(int(float(start_range:=TEN.__repr__())), end_range:=int(ten.__repr__())):
+  print(WordNumber(i).name)
+
+> Not known
+> Not known
+> Not known
+> Not known
+> Not known
+> Not known
+> Not known
+> Not known
+> Not known
+> Not known
+> zero
+> one
+> two
+> three
+> four
+> five
+> six
+> seven
+> eight
+> nine
+
+start_range
+> '-10.0'
+```
+
+*Subtraction*
+
+Subtraction is not currently implemented, but can be achieved by simple adding the capitalised version of the number you wish to subtract! For instance, to do `10 - 8` you can use:
+
+```
+ten + EIGHT
+> (2,)
+```
+
+*Big numbers*
+
+To create very big numbers, you might find this syntax helpful:
+
+```
+ten@eval("@".join(["zero"] * 40))
+```
+
+*Fractions*
+
+Numberphiles have a weird obsession with fractions despite them serving no real world function - after all, nothing is partial in a world made of whole elements. I have implemented them just in case they come up in some theoretical context.
+
+```
+ten + (4+5j)
+> 10.8
+```
+
+*Rebasing*
+
+The below code can seamlessly multiply all WordNumbers in your global scope by 2
+
+```
+for i in globals().keys():
+    try:
+        if isinstance(eval(i), WordNumber):
+            eval(i) < str(int((eval(i)+eval(i))[0]))
+    except NameError:
+        pass
+
+one
+> 2
+TWO
+> -4
+fortyfive
+> 90
+five + five
+(20,)
+```
