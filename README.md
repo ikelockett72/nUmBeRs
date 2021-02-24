@@ -105,7 +105,7 @@ ONE == twelve@"Pizza Party"
 ```
 4 + (five + 6)[0]
 ```
-> (15,)
+> 15
 
 ---
 
