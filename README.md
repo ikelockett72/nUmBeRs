@@ -34,15 +34,12 @@ one + "ONE"
 ```
 > 2
 
-<<<<<<< HEAD
 ```
 one + one
 ```
 > (2,)
 
-=======
 ---
->>>>>>> 8416db06d4be55da7539bc88cb6aaf281db2a5e3
 
 *Equality conditions now work*
 
