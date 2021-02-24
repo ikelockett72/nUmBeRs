@@ -10,166 +10,166 @@ What's more is, is, you can even have uppercase numbers, like Four! All you have
 
 ***
 
-# EXAMPLES
+## EXAMPLES
 
-*Addition*
+### Addition
 
 ```
 one + 1
-```
 > (2,)
+```
 
 ```
 one + one
-```
 > (2,)
+```
 
 ```
 one + "1"
-```
 > 2
+```
 
 ```
 one + "one"
-```
 > 2
+```
 
 ```
 one + "ONE"
-```
 > 2
-
+```
 
 ---
 
-*Equality conditions now work*
+### Equality conditions now work
 
 ```
 one == 1
-```
 > True
+```
 
 ```
 one == 2
-```
 > False
->
+```
+
 ---
 
-*Use @ to find the number within a string*
+### Use @ to find the number within a string
 ```
 three@"where is the three?"
-```
 > 13
+```
 
 ```
 ten@"The concert was well attended"
-```
 > 23
+```
 
 ---
 
-*Capital numbers - allows for a greater range of integers*
+### Capital numbers - allows for a greater range of integers
 
 ```
 Three
-```
 > 3.5
+```
 
 ---
 
-*All caps numbers allow negatives*
+### All caps numbers allow negatives
 
 ```
 TWO
-```
 > -2.0
+```
 
 ---
 
-*All caps maths works too*
+### All caps maths works too
 
 ```
 THREE + FOUR
-```
 > (-7.0,)
+```
 
 ```
 ONE == twelve@"Pizza Party"
-```
 > True
+```
 
 ---
 
-*Addition of more than 2 numbers possible with parentheses*
+### Addition of more than 2 numbers possible with parentheses
 
 ```
 4 + (five + 6)[0]
-```
 > 15
+```
 
 ---
 
-*Reassign numbers using <*
+### Reassign numbers using <
 
 ```
 four < "5"
 four
-```
 > 5
+```
 
 ---
 
-*Reassign numbers the other way around using >*
+### Reassign numbers the other way around using >
+
 ```
 "2" > four
 four
-```
 > 2
+```
 
 ```
 one > five
 five
-```
 > 1
+```
 
 ---
 
-*Use > to compare WordNumbers to other numbers*
+### Use > to compare WordNumbers to other numbers
 
 ```
 four > 5
-```
 > False
+```
 
 ```
 four > 3
-```
 > "Yes"
+```
 
-^ If the above doesn't work, exit and reimport. This may have been due to previously reassigning the number
+*If the above doesn't work, exit and reimport. This may have been due to previously reassigning the number
 
 ---
 
-*Use @ to create shortcut numbers*
+### Use @ to create shortcut numbers
 
 This is particularly helpful with larger, more verbose numbers
 
 ```
 three@four@six@five + five@ten@eleven@four
-```
 > (513579,)
+```
 
 ---
 
-*Integer division works perfectly*
+### Integer division works perfectly
 
 ```
 ten / 2
 > 5
 ```
 
-If the output is between numbers, it'll just pick one of the closest two numbers
+*If the output is between numbers, it'll just pick one of the closest two numbers
 
 ```
 ten / 3
@@ -181,12 +181,12 @@ ten / 3
 
 ***
 
-# KNOWN ISSUES
+## KNOWN ISSUES
 
 ```
 one + one == two
-```
 > False
+```
 
 This is due to a type conversion error. You can get around this by doing: `(one + one)[0] == two.__value__()` or `bool(one + one) == bool(two)`
 
@@ -197,8 +197,8 @@ Alternatively ensure that the value to the right of the `==` operator is an inte
 ```
 Four = WordNumber(four)
 Four.number
-```
 > AttributeError: 'WordNumber' object has no attribute 'number'
+```
 
 This is the correct behaviour, and user should not write code that does this.
 
@@ -208,8 +208,8 @@ Instead, use `Four = WordNumber('Four')` when creating Capital numbers
 
 ```
 five + six + "2"
-```
 > TypeError: can only concatenate tuple (not "str") to tuple
+```
 
 This is because the user has failed to use parentheses, as so: `five + (six + "2")`
 
@@ -217,17 +217,17 @@ This is because the user has failed to use parentheses, as so: `five + (six + "2
 
 ```
 ninety + 91 + ninetyone
-```
 >
+```
 
 Don't add a WordNumber to a tuple, it won't work.
 
---
+---
 
 ```
 eight == 82
-```
 > True
+```
 
 Note though that this equality condition only fails when two specific conditions are met:
 - Both the WordNumber and the integer to which it is being compared are even / odd
@@ -266,9 +266,9 @@ Note that you can always use FOURTYFOUR in the meantime
 
 ***
 
-# ADVANCED USAGE
+## ADVANCED USAGE
 
-*Range Iterator*
+### Range Iterator
 
 This is a way to output the name of every known number from -10 to 9. Take note in particular that the variable start_range is assigned the value `'-10.0'` and end_range is now `10` due to the use of the walrus operator.
 
@@ -303,9 +303,9 @@ start_range
 
 ---
 
-*Subtraction*
+### Subtraction
 
-Subtraction is not currently implemented, but can be achieved by simple adding the capitalised version of the number you wish to subtract! For instance, to do `10 - 8` you can use:
+Subtraction is not currently implemented natively, but can be achieved by simple adding the capitalised version of the number you wish to subtract! For instance, to do `10 - 8` you can use:
 
 ```
 ten + EIGHT
@@ -314,7 +314,7 @@ ten + EIGHT
 
 ---
 
-*Big numbers*
+### Big numbers
 
 To create very big numbers, you might find this syntax helpful:
 
@@ -334,7 +334,7 @@ BigNumber + two
 
 ---
 
-*Fractions*
+### Fractions
 
 Numberphiles have a weird obsession with fractions despite them serving no real world function - after all, nothing is partial in a world made of whole elements. I have implemented them just in case they come up in some theoretical context.
 
@@ -345,7 +345,7 @@ ten + (4+5j)
 
 ---
 
-*Rebasing*
+### Rebasing
 
 The below code can seamlessly multiply all WordNumbers in your global scope by 2
 
