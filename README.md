@@ -20,9 +20,14 @@ one + 1
 > (2,)
 
 ```
-one + "1"
+one + one
 ```
 > (2,)
+
+```
+one + "1"
+```
+> 2
 
 ```
 one + "one"
@@ -34,10 +39,6 @@ one + "ONE"
 ```
 > 2
 
-```
-one + one
-```
-> (2,)
 
 ---
 
@@ -82,7 +83,7 @@ Three
 ```
 TWO
 ```
-> -2
+> -2.0
 
 ---
 
@@ -250,6 +251,8 @@ four + Four
 
 To be honest if any of this confuses you, you shouldn't be coding. Order of operations is essential here, and you need to be especially careful with Capital numbers.
 
+---
+
 ```
 FOUR@four
 > NotImplementedError: No such number (please raise a JIRA ticket)
@@ -265,11 +268,11 @@ Note that you can always use FOURTYFOUR in the meantime
 
 *Range Iterator*
 
-This is a way to output the name of every known number from -10 to 9. Take note in particular that the variable start_range is assigned the value `'-10.0'` due to the use of the walrus operator.
+This is a way to output the name of every known number from -10 to 9. Take note in particular that the variable start_range is assigned the value `'-10.0'` and end_range is now `10` due to the use of the walrus operator.
 
 ```
 for i in range(int(float(start_range:=TEN.__repr__())), end_range:=int(ten.__repr__())):
-  print(WordNumber(i).name)
+    print(WordNumber(i).name)
 
 > Not known
 > Not known
@@ -296,6 +299,8 @@ start_range
 > '-10.0'
 ```
 
+---
+
 *Subtraction*
 
 Subtraction is not currently implemented, but can be achieved by simple adding the capitalised version of the number you wish to subtract! For instance, to do `10 - 8` you can use:
@@ -305,13 +310,27 @@ ten + EIGHT
 > (2,)
 ```
 
+---
+
 *Big numbers*
 
 To create very big numbers, you might find this syntax helpful:
 
 ```
-ten@eval("@".join(["zero"] * 40))
+LotsOfZeroes = ten@eval("@".join(["zero"] * 40))
+LotsOfZeroes
+> 100000000000000000000000000000000000000000
 ```
+
+Or alternatively:
+
+```
+BigNumber = eval("@".join("WordNumber(" + str(i) + ")" for i in [one] * 100))
+BigNumber + two
+> (2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222224,)
+```
+
+---
 
 *Fractions*
 
@@ -321,6 +340,8 @@ Numberphiles have a weird obsession with fractions despite them serving no real 
 ten + (4+5j)
 > 10.8
 ```
+
+---
 
 *Rebasing*
 
